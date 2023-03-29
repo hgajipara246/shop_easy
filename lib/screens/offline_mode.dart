@@ -21,17 +21,7 @@ class _OfflineModeState extends State<OfflineMode> {
         ),
         backgroundColor: Colors.white,
         elevation: 0,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Image.asset(
-              "assets/icons/notifications.png",
-              height: 25,
-              width: 25,
-            ),
-          )
-        ],
-        title: Text(
+        title: const Text(
           "Offline Mode",
           style: TextStyle(
             fontWeight: FontWeight.w500,
@@ -46,20 +36,23 @@ class _OfflineModeState extends State<OfflineMode> {
         padding: const EdgeInsets.all(25.0),
         child: Column(
           children: [
-            Text(
-              "Enabling the Offline Mode makes you to access products without connected to the internet. Using this feature might consume a large storage on your device. The feature makes it unable for users to get new items on sale and also make purchases until they are connected to the internet. It also takes a little time before it takes effect.",
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontFamily: "Poppins",
-                fontSize: 14,
+            const SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              child: Text(
+                "Enabling the Offline Mode makes you to access products without connected to the internet. Using this feature might consume a large storage on your device. The feature makes it unable for users to get new items on sale and also make purchases until they are connected to the internet. It also takes a little time before it takes effect.",
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontFamily: "Poppins",
+                  fontSize: 14,
+                ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: Color(0x15000000),
                     offset: Offset(0, 5),
@@ -67,7 +60,7 @@ class _OfflineModeState extends State<OfflineMode> {
                   ),
                 ],
                 border: Border.all(
-                  color: Color(0xFFF5F5F5),
+                  color: const Color(0xFFF5F5F5),
                   width: 2,
                 ),
               ),
@@ -76,7 +69,7 @@ class _OfflineModeState extends State<OfflineMode> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "Enable offline mode",
                       style: TextStyle(
                         fontFamily: "WorkSans",
@@ -86,9 +79,9 @@ class _OfflineModeState extends State<OfflineMode> {
                       ),
                     ),
                     CupertinoSwitch(
-                      trackColor: Color(0xFFF5F5F5),
-                      thumbColor: Color(0xFF000000),
-                      activeColor: Color(0xFFFFA500),
+                      trackColor: const Color(0xFFF5F5F5),
+                      thumbColor: const Color(0xFFFFA500),
+                      activeColor: const Color(0xFFFFA500),
                       value: switchValueOne,
                       onChanged: (value) {
                         debugPrint("Value --->> $value");

@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 
-class Language extends StatefulWidget {
-  const Language({Key? key}) : super(key: key);
+class CurrencyPage extends StatefulWidget {
+  const CurrencyPage({Key? key}) : super(key: key);
 
   @override
-  State<Language> createState() => _LanguageState();
+  State<CurrencyPage> createState() => _CurrencyPageState();
 }
 
-class _LanguageState extends State<Language> {
-  List languageList = [
-    "Afrikaans",
-    "Arabic",
-    "Belarusian",
-    "Bulgarian",
-    "Chinese (Simplified)",
-    "Croatian",
-    "Danish",
-    "English",
-    "Estonian",
-    "Filipino",
-    "French",
+class _CurrencyPageState extends State<CurrencyPage> {
+  List CurrencyList = [
+    "Value",
+    "Value",
+    "Value",
+    "Nigerian Naira (NGN)",
+    "Value",
+    "Value",
+    "Value",
+    "Value",
+    "Value",
+    "Value",
+    "Value",
   ];
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class _LanguageState extends State<Language> {
         backgroundColor: Colors.white,
         elevation: 0,
         title: const Text(
-          "Language",
+          "Currency ",
           style: TextStyle(
             fontWeight: FontWeight.w500,
             fontFamily: "Poppins",
@@ -61,7 +61,7 @@ class _LanguageState extends State<Language> {
                 child: const Padding(
                   padding: EdgeInsets.all(15),
                   child: Text(
-                    "English",
+                    "Nigerian Naira (NGN)",
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontFamily: "Poppins",
@@ -92,13 +92,13 @@ class _LanguageState extends State<Language> {
                   padding: const EdgeInsets.all(20),
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemBuilder: (context, index) => index == 7
+                  itemBuilder: (context, index) => index == 3
                       ? Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: const [
                             Padding(
                               padding: EdgeInsets.all(15),
-                              child: Text("English"),
+                              child: Text("Nigerian Naira (NGN)"),
                             ),
                             Icon(
                               Icons.done_outlined,
@@ -110,7 +110,7 @@ class _LanguageState extends State<Language> {
                           children: [
                             Padding(
                               padding: const EdgeInsets.all(15),
-                              child: Text(languageList[index]),
+                              child: Text(CurrencyList[index]),
                             )
                           ],
                         ),

@@ -16,10 +16,10 @@ class _AddNewCardState extends State<AddNewCard> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: BackButton(
+        leading: const BackButton(
           color: Color(0xFF1E1E1E),
         ),
-        title: Text(
+        title: const Text(
           "Add New Card",
           style: TextStyle(
             fontWeight: FontWeight.w500,
@@ -32,7 +32,7 @@ class _AddNewCardState extends State<AddNewCard> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Column(
@@ -41,7 +41,7 @@ class _AddNewCardState extends State<AddNewCard> {
                   decoration: BoxDecoration(
                       border: Border.all(
                         width: 1,
-                        color: Color(0xFF6F6F6F),
+                        color: const Color(0xFF6F6F6F),
                       ),
                       borderRadius: BorderRadius.circular(5)),
                   child: Padding(
@@ -49,7 +49,7 @@ class _AddNewCardState extends State<AddNewCard> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
+                        const Text(
                           "4852 2975 9554 6726",
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
@@ -65,19 +65,19 @@ class _AddNewCardState extends State<AddNewCard> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
                       border: Border.all(
                         width: 1,
-                        color: Color(0xFF6F6F6F),
+                        color: const Color(0xFF6F6F6F),
                       ),
                       borderRadius: BorderRadius.circular(5)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
+                  child: const Padding(
+                    padding: EdgeInsets.all(10),
                     child: Padding(
-                      padding: const EdgeInsets.all(10),
+                      padding: EdgeInsets.all(10),
                       child: Text(
                         "Cardholder’s Name",
                         style: TextStyle(
@@ -90,19 +90,19 @@ class _AddNewCardState extends State<AddNewCard> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Container(
                   decoration: BoxDecoration(
                       border: Border.all(
                         width: 1,
-                        color: Color(0xFF6F6F6F),
+                        color: const Color(0xFF6F6F6F),
                       ),
                       borderRadius: BorderRadius.circular(5)),
                   child: Padding(
                     padding: const EdgeInsets.all(15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
+                      children: const [
                         Text(
                           "Expiry Date",
                           style: TextStyle(
@@ -120,19 +120,19 @@ class _AddNewCardState extends State<AddNewCard> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Container(
                   decoration: BoxDecoration(
                       border: Border.all(
                         width: 1,
-                        color: Color(0xFF6F6F6F),
+                        color: const Color(0xFF6F6F6F),
                       ),
                       borderRadius: BorderRadius.circular(5)),
                   child: Padding(
                     padding: const EdgeInsets.all(15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
+                      children: const [
                         Text(
                           "CVC/CVV",
                           style: TextStyle(
@@ -150,7 +150,7 @@ class _AddNewCardState extends State<AddNewCard> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 InkWell(
                   onTap: () {
                     // Navigator.push(
@@ -163,14 +163,14 @@ class _AddNewCardState extends State<AddNewCard> {
                     width: double.infinity,
                     height: 55,
                     decoration: BoxDecoration(
-                      color: Color(0xFFFFA500),
+                      color: const Color(0xFFFFA500),
                       borderRadius: BorderRadius.circular(5),
                       border: Border.all(
-                        color: Color(0xFFFFE4B3),
+                        color: const Color(0xFFFFE4B3),
                         width: 1,
                       ),
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         "Add new card",
                         style: TextStyle(
