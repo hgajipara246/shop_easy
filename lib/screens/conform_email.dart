@@ -1,0 +1,134 @@
+import 'package:flutter/material.dart';
+import 'package:shop_easy/screens/bottom/bottom_screen.dart';
+import 'package:shop_easy/screens/sign_up.dart';
+
+class ConformEmail extends StatefulWidget {
+  const ConformEmail({Key? key}) : super(key: key);
+
+  @override
+  State<ConformEmail> createState() => _ConformEmailState();
+}
+
+class _ConformEmailState extends State<ConformEmail> {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(height: 130),
+              Center(
+                child: Text(
+                  "Confirm Email",
+                  style: TextStyle(
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.w500,
+                    fontSize: 21,
+                    color: Color(0xFF1E1E1E),
+                  ),
+                ),
+              ),
+              SizedBox(height: 25),
+              Image.asset(
+                "assets/icons/conform_mail.png",
+                width: 240,
+                height: 260,
+              ),
+              SizedBox(height: 25),
+              Text(
+                "A link has been sent to",
+                style: TextStyle(
+                  fontFamily: "WorkSans",
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14,
+                  color: Color(0xFF1E1E1E),
+                ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                "dolores.chambers@example.com.",
+                style: TextStyle(
+                  fontFamily: "Poppins",
+                  fontWeight: FontWeight.w600,
+                  fontSize: 15,
+                  color: Color(0xFF1E1E1E),
+                ),
+              ),
+              Text(
+                "Click on the link to verify your email",
+                style: TextStyle(
+                  fontFamily: "WorkSans",
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14,
+                  color: Color(0xFF1E1E1E),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BottomScreen(),
+                    ),
+                  );
+                },
+                child: Container(
+                  height: 50,
+                  width: 330,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFFFA500),
+                    borderRadius: BorderRadius.circular(5),
+                    border: Border.all(
+                      width: 1,
+                      style: BorderStyle.solid,
+                      color: Color(0xFFFFE4B3),
+                    ),
+                  ),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Continue",
+                      style: TextStyle(
+                        color: Color(0xFFFFFFFF),
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignInPage(),
+                    ),
+                  );
+                },
+                child: Text(
+                  "Resend Email",
+                  style: TextStyle(
+                    color: Color(0xFFCD7300),
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
