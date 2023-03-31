@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_easy/screens/search_page_three.dart';
+import 'package:shop_easy/screens/checkout_page_two.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SearchPageThree(),
+      home: const CheckOutPageTwo(),
     );
   }
 }
