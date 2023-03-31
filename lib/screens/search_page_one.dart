@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_easy/screens/search_page_two.dart';
 
 class SearchPageOne extends StatefulWidget {
   const SearchPageOne({Key? key}) : super(key: key);
@@ -24,25 +25,35 @@ class _SearchPageOneState extends State<SearchPageOne> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Color(0xFFF5F5F5),
-                  borderRadius: BorderRadius.circular(30),
-                  border: Border.all(
-                    color: Color(0xFFD3D3D3),
-                    width: 2,
-                    style: BorderStyle.solid,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SearchPageTwo(),
+                    ),
+                  );
+                },
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFF5F5F5),
+                    borderRadius: BorderRadius.circular(30),
+                    border: Border.all(
+                      color: Color(0xFFD3D3D3),
+                      width: 2,
+                      style: BorderStyle.solid,
+                    ),
                   ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-                  child: Text(
-                    "|",
-                    style: TextStyle(
-                      fontSize: 35,
-                      color: Color(0xB21E1E1E),
-                      fontWeight: FontWeight.w100,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                    child: Text(
+                      "|",
+                      style: TextStyle(
+                        fontSize: 35,
+                        color: Color(0xB21E1E1E),
+                        fontWeight: FontWeight.w100,
+                      ),
                     ),
                   ),
                 ),

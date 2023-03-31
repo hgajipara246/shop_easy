@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_easy/screens/search_page_one.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -88,36 +89,46 @@ class _HomePageState extends State<HomePage> {
             ),
             Padding(
               padding: const EdgeInsets.all(10),
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Color(0xFFF5F5F5),
-                  border: Border.all(
-                    color: Color(0xFFD3D3D3),
-                    width: 1,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SearchPageOne(),
+                    ),
+                  );
+                },
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFF5F5F5),
+                    border: Border.all(
+                      color: Color(0xFFD3D3D3),
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(30),
                   ),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        "assets/icons/search_icon.png",
-                        height: 20,
-                        width: 20,
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        "Groceries, Dresses, suits, etc",
-                        style: TextStyle(
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.w400,
-                          fontSize: 13,
-                          color: Color(0xFF1E1E1E),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          "assets/icons/search_icon.png",
+                          height: 20,
+                          width: 20,
                         ),
-                      )
-                    ],
+                        SizedBox(width: 10),
+                        Text(
+                          "Groceries, Dresses, suits, etc",
+                          style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400,
+                            fontSize: 13,
+                            color: Color(0xFF1E1E1E),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

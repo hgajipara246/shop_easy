@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_easy/screens/search_page_three.dart';
 
 class SearchPageTwo extends StatefulWidget {
   const SearchPageTwo({Key? key}) : super(key: key);
@@ -36,7 +37,7 @@ class _SearchPageOneState extends State<SearchPageTwo> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                  padding: const EdgeInsets.all(15),
                   child: Text(
                     "B",
                     style: TextStyle(
@@ -58,20 +59,30 @@ class _SearchPageOneState extends State<SearchPageTwo> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       SizedBox(width: 15),
-                      Text(
-                        "Boots",
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Color(0xFF1E1E1E),
-                          fontFamily: "WorkSans",
-                          fontWeight: FontWeight.w400,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SearchPageThree(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          "Boots",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Color(0xFF1E1E1E),
+                            fontFamily: "WorkSans",
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
                       SizedBox(height: 15),
                       Text(
                         "Bracelets",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 16,
                           color: Color(0xFF1E1E1E),
                           fontFamily: "WorkSans",
                           fontWeight: FontWeight.w400,
@@ -81,7 +92,7 @@ class _SearchPageOneState extends State<SearchPageTwo> {
                       Text(
                         "Bags",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 16,
                           color: Color(0xFF1E1E1E),
                           fontFamily: "WorkSans",
                           fontWeight: FontWeight.w400,
@@ -91,7 +102,7 @@ class _SearchPageOneState extends State<SearchPageTwo> {
                       Text(
                         "Baby stuffs",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 16,
                           color: Color(0xFF1E1E1E),
                           fontFamily: "WorkSans",
                           fontWeight: FontWeight.w400,
@@ -101,7 +112,7 @@ class _SearchPageOneState extends State<SearchPageTwo> {
                       Text(
                         "Bows",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 16,
                           color: Color(0xFF1E1E1E),
                           fontFamily: "WorkSans",
                           fontWeight: FontWeight.w400,

@@ -13,17 +13,12 @@ class BottomScreen extends StatefulWidget {
 }
 
 class _BottomScreenState extends State<BottomScreen> {
-  final List<Widget> _widgetOptions = [
+  final List<Widget> widgetOptions = [
     const HomePage(),
     const FavStores(),
-    const CarPage(),
+    const CartPage(),
     const ProfilePage(),
   ];
-  void _onItemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
 
   int selectedIndex = 0;
 
@@ -35,52 +30,42 @@ class _BottomScreenState extends State<BottomScreen> {
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: selectedIndex == 0
-                ? SvgPicture.asset(
-                    "assets/icons/home_orange.svg",
-                  )
-                : SvgPicture.asset(
-                    "assets/icons/home.svg",
-                  ),
+            icon: SvgPicture.asset(
+              selectedIndex == 0 ? "assets/icons/home_orange.svg" : "assets/icons/home.svg",
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: selectedIndex == 1
-                ? SvgPicture.asset(
-                    "assets/icons/fav_store_orange.svg",
-                  )
-                : SvgPicture.asset(
-                    "assets/icons/fav_store.svg",
-                  ),
+            icon: SvgPicture.asset(
+              selectedIndex == 1 ? "assets/icons/fav_store_orange.svg" : "assets/icons/fav_store.svg",
+            ),
             label: 'Fav Store',
           ),
           BottomNavigationBarItem(
-            icon: selectedIndex == 2
-                ? SvgPicture.asset(
-                    "assets/icons/cart_orange.svg",
-                  )
-                : SvgPicture.asset(
-                    "assets/icons/cart.svg",
-                  ),
+            icon: SvgPicture.asset(
+              selectedIndex == 2 ? "assets/icons/cart_orange.svg" : "assets/icons/cart.svg",
+            ),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: selectedIndex == 3
-                ? SvgPicture.asset(
-                    "assets/icons/profile_orange.svg",
-                  )
-                : SvgPicture.asset(
-                    "assets/icons/profile.svg",
-                  ),
+            icon: SvgPicture.asset(
+              selectedIndex == 3 ? "assets/icons/profile_orange.svg" : "assets/icons/profile.svg",
+            ),
             label: 'Profile',
           ),
         ],
         currentIndex: selectedIndex,
         selectedItemColor: Color(0xFFFFA500),
         unselectedItemColor: const Color(0xff999999),
-        onTap: _onItemTapped,
+        onTap: (value) {
+          setState(
+            () {
+              selectedIndex = value;
+            },
+          );
+        },
       ),
-      body: _widgetOptions.elementAt(selectedIndex),
+      body: widgetOptions.elementAt(selectedIndex),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_easy/screens/filter_page.dart';
 
 class SearchPageThree extends StatefulWidget {
   const SearchPageThree({Key? key}) : super(key: key);
@@ -57,13 +58,20 @@ class _WishListPageState extends State<SearchPageThree> {
             color: Colors.black,
           ),
           actions: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: Icon(
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const FilterPage(),
+                  ),
+                );
+              },
+              icon: Icon(
                 Icons.filter_alt_outlined,
                 color: Color(0xFF1E1E1E),
               ),
-            ),
+            )
           ],
         ),
         body: Column(

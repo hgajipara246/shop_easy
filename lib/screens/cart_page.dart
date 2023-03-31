@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CarPage extends StatefulWidget {
-  const CarPage({Key? key}) : super(key: key);
+class CartPage extends StatefulWidget {
+  const CartPage({Key? key}) : super(key: key);
 
   @override
-  State<CarPage> createState() => _CarPageState();
+  State<CartPage> createState() => _CarPageState();
 }
 
-class _CarPageState extends State<CarPage> {
+class _CarPageState extends State<CartPage> {
   List ProductPic = ["assets/images/products/facewhas.png", "assets/images/products/pink_purce.png"];
   List ProductBlurePic = ["assets/images/backgrounds/blure_one.png", "assets/images/backgrounds/blure_two.png"];
   @override

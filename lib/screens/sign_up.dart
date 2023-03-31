@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_easy/screens/conform_email.dart';
+import 'package:shop_easy/screens/login_page.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -145,7 +146,14 @@ class _LogInPageState extends State<SignInPage> {
               bottom: 85,
               left: 15,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ConformEmail(),
+                    ),
+                  );
+                },
                 child: Container(
                   height: 50,
                   width: 330,
@@ -197,7 +205,14 @@ class _LogInPageState extends State<SignInPage> {
                   ),
                   const SizedBox(width: 2),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LogInPage(),
+                        ),
+                      );
+                    },
                     child: const Text(
                       "Log In ",
                       style: TextStyle(

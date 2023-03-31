@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_easy/screens/bottom/bottom_screen.dart';
-import 'package:shop_easy/screens/sign_up.dart';
+import 'package:shop_easy/screens/home_page.dart';
 
 class ConformEmail extends StatefulWidget {
   const ConformEmail({Key? key}) : super(key: key);
@@ -20,8 +19,8 @@ class _ConformEmailState extends State<ConformEmail> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(height: 130),
-              Center(
+              const SizedBox(height: 130),
+              const Center(
                 child: Text(
                   "Confirm Email",
                   style: TextStyle(
@@ -32,14 +31,14 @@ class _ConformEmailState extends State<ConformEmail> {
                   ),
                 ),
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               Image.asset(
                 "assets/icons/conform_mail.png",
                 width: 240,
                 height: 260,
               ),
-              SizedBox(height: 25),
-              Text(
+              const SizedBox(height: 25),
+              const Text(
                 "A link has been sent to",
                 style: TextStyle(
                   fontFamily: "WorkSans",
@@ -48,8 +47,8 @@ class _ConformEmailState extends State<ConformEmail> {
                   color: Color(0xFF1E1E1E),
                 ),
               ),
-              SizedBox(height: 10),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                 "dolores.chambers@example.com.",
                 style: TextStyle(
                   fontFamily: "Poppins",
@@ -58,7 +57,7 @@ class _ConformEmailState extends State<ConformEmail> {
                   color: Color(0xFF1E1E1E),
                 ),
               ),
-              Text(
+              const Text(
                 "Click on the link to verify your email",
                 style: TextStyle(
                   fontFamily: "WorkSans",
@@ -67,31 +66,31 @@ class _ConformEmailState extends State<ConformEmail> {
                   color: Color(0xFF1E1E1E),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const BottomScreen(),
-                    ),
-                  );
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomePage(),
+                      ),
+                      (route) => false);
                 },
                 child: Container(
                   height: 50,
                   width: 330,
                   decoration: BoxDecoration(
-                    color: Color(0xFFFFA500),
+                    color: const Color(0xFFFFA500),
                     borderRadius: BorderRadius.circular(5),
                     border: Border.all(
                       width: 1,
                       style: BorderStyle.solid,
-                      color: Color(0xFFFFE4B3),
+                      color: const Color(0xFFFFE4B3),
                     ),
                   ),
-                  child: Align(
+                  child: const Align(
                     alignment: Alignment.center,
                     child: Text(
                       "Continue",
@@ -105,16 +104,8 @@ class _ConformEmailState extends State<ConformEmail> {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
-              InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SignInPage(),
-                    ),
-                  );
-                },
+              const SizedBox(height: 10),
+              const InkWell(
                 child: Text(
                   "Resend Email",
                   style: TextStyle(
