@@ -15,10 +15,10 @@ class _OfflineModeState extends State<OfflineMode> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: const Icon(
-          Icons.dehaze_rounded,
-          color: Color(0xFF1E1E1E),
+        leading: BackButton(
+          color: Colors.black,
         ),
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         elevation: 0,
         title: const Text(

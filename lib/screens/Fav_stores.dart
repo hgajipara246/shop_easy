@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_easy/screens/store_profile.dart';
 
 class FavStores extends StatefulWidget {
   const FavStores({Key? key}) : super(key: key);
@@ -39,10 +40,7 @@ class _ScreenElevenState extends State<FavStores> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: const Icon(
-          Icons.dehaze_rounded,
-          color: Color(0xFF1E1E1E),
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         elevation: 0,
         actions: [
@@ -56,10 +54,7 @@ class _ScreenElevenState extends State<FavStores> {
           )
         ],
       ),
-      drawerEnableOpenDragGesture: false,
-      drawer: const Drawer(
-        backgroundColor: Colors.black12,
-      ),
+      drawer: const Drawer(),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 10,
@@ -93,30 +88,40 @@ class _ScreenElevenState extends State<FavStores> {
                       mainAxisExtent: 48,
                       childAspectRatio: 1.5,
                     ),
-                    itemBuilder: (context, index) => Container(
-                      width: 170,
-                      decoration: BoxDecoration(
-                        color: Colors.black26,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Stack(
-                        children: [
-                          Image.asset(
-                            image[index],
-                            fit: BoxFit.cover,
+                    itemBuilder: (context, index) => InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => StoreProfile(),
                           ),
-                          const Center(
-                            child: Text(
-                              "Store Name",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontFamily: "Poppins",
-                                fontSize: 14,
-                                color: Color(0xFFFFFFFF),
+                        );
+                      },
+                      child: Container(
+                        width: 170,
+                        decoration: BoxDecoration(
+                          color: Colors.black26,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Stack(
+                          children: [
+                            Image.asset(
+                              image[index],
+                              fit: BoxFit.cover,
+                            ),
+                            const Center(
+                              child: Text(
+                                "Store Name",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14,
+                                  color: Color(0xFFFFFFFF),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

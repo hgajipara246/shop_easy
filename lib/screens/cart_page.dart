@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_easy/screens/product_details.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -14,12 +15,9 @@ class _CarPageState extends State<CartPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Icon(
-          Icons.dehaze_rounded,
-          color: Colors.black,
-        ),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -60,147 +58,159 @@ class _CarPageState extends State<CartPage> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Stack(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          ProductPic[index],
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        child: Opacity(
-                          opacity: 0.8,
+                  child: InkWell(
+                    onTap: () {
+                      if (index == 0) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetails(),
+                          ),
+                        );
+                      }
+                    },
+                    child: Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
                           child: Image.asset(
-                            ProductBlurePic[index],
-                            height: 180,
-                            width: 354,
+                            ProductPic[index],
+                            fit: BoxFit.cover,
                           ),
                         ),
-                      ),
-                      Positioned(
-                        bottom: 120,
-                        left: 15,
-                        child: Text(
-                          "Product Name Product Name Product ",
-                          style: TextStyle(
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w400,
-                            fontSize: 16,
-                            color: Color(0xFF1E1E1E),
+                        Positioned(
+                          bottom: 0,
+                          child: Opacity(
+                            opacity: 0.8,
+                            child: Image.asset(
+                              ProductBlurePic[index],
+                              height: 180,
+                              width: 354,
+                            ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                        bottom: 90,
-                        left: 15,
-                        child: Row(
-                          children: [
-                            Text(
-                              "\$841.00",
-                              style: TextStyle(
-                                color: Color(0xFF1E1E1E),
-                                fontFamily: "Poppins",
-                                decoration: TextDecoration.lineThrough,
-                                fontWeight: FontWeight.w300,
-                                fontSize: 16,
-                              ),
+                        Positioned(
+                          bottom: 120,
+                          left: 15,
+                          child: Text(
+                            "Product Name Product Name Product ",
+                            style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16,
+                              color: Color(0xFF1E1E1E),
                             ),
-                            SizedBox(width: 10),
-                            Text(
-                              "\$841.00",
-                              style: TextStyle(
-                                color: Color(0xFF1E1E1E),
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
-                      Positioned(
-                        bottom: 60,
-                        left: 15,
-                        child: Row(
-                          children: [
-                            Text(
-                              "Quantity",
-                              style: TextStyle(
-                                color: Color(0xFF1E1E1E),
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
+                        Positioned(
+                          bottom: 90,
+                          left: 15,
+                          child: Row(
+                            children: [
+                              Text(
+                                "\$841.00",
+                                style: TextStyle(
+                                  color: Color(0xFF1E1E1E),
+                                  fontFamily: "Poppins",
+                                  decoration: TextDecoration.lineThrough,
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: 16,
+                                ),
                               ),
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              "10ml",
-                              style: TextStyle(
-                                color: Color(0xFF1E1E1E),
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w400,
-                                fontSize: 15,
+                              SizedBox(width: 10),
+                              Text(
+                                "\$841.00",
+                                style: TextStyle(
+                                  color: Color(0xFF1E1E1E),
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      Positioned(
-                        bottom: 28,
-                        left: 15,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/icons/delete.png",
-                              width: 20,
-                              height: 20,
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              "Remove",
-                              style: TextStyle(
-                                color: Color(0xFFFF3232),
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w400,
-                                fontSize: 15,
+                        Positioned(
+                          bottom: 60,
+                          left: 15,
+                          child: Row(
+                            children: [
+                              Text(
+                                "Quantity",
+                                style: TextStyle(
+                                  color: Color(0xFF1E1E1E),
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                            SizedBox(width: 120),
-                            Container(
-                              height: 25,
-                              decoration: BoxDecoration(
-                                color: Color(0x8000000),
-                                borderRadius: BorderRadius.circular(5),
+                              SizedBox(width: 10),
+                              Text(
+                                "10ml",
+                                style: TextStyle(
+                                  color: Color(0xFF1E1E1E),
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 15,
+                                ),
                               ),
-                              child: Icon(Icons.remove),
-                            ),
-                            SizedBox(width: 12),
-                            Text(
-                              "1",
-                              style: TextStyle(
-                                color: Color(0xFF000000),
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w500,
-                                fontSize: 15,
-                              ),
-                            ),
-                            SizedBox(width: 12),
-                            Container(
-                              height: 25,
-                              decoration: BoxDecoration(
-                                color: Color(0x8000000),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Icon(Icons.add),
-                            )
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                        Positioned(
+                          bottom: 28,
+                          left: 15,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                "assets/icons/delete.png",
+                                width: 20,
+                                height: 20,
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                "Remove",
+                                style: TextStyle(
+                                  color: Color(0xFFFF3232),
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              SizedBox(width: 120),
+                              Container(
+                                height: 25,
+                                decoration: BoxDecoration(
+                                  color: Color(0x8000000),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: Icon(Icons.remove),
+                              ),
+                              SizedBox(width: 12),
+                              Text(
+                                "1",
+                                style: TextStyle(
+                                  color: Color(0xFF000000),
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              SizedBox(width: 12),
+                              Container(
+                                height: 25,
+                                decoration: BoxDecoration(
+                                  color: Color(0x8000000),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: Icon(Icons.add),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 separatorBuilder: (context, index) => SizedBox(
@@ -231,6 +241,7 @@ class _CarPageState extends State<CartPage> {
           ),
         ),
       ),
+      drawer: Drawer(),
     );
   }
 }

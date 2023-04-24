@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_easy/extantion/extantion.dart';
 import 'package:shop_easy/screens/conform_email.dart';
 import 'package:shop_easy/screens/sign_up.dart';
 
@@ -6,226 +8,195 @@ class LogInPage extends StatefulWidget {
   const LogInPage({Key? key}) : super(key: key);
 
   @override
-  State<LogInPage> createState() => _LogInPageState();
+  State<LogInPage> createState() => _SignInScreenState();
 }
 
-class _LogInPageState extends State<LogInPage> {
+class _SignInScreenState extends State<LogInPage> {
+  TextEditingController emailController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  bool password = true;
+
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Stack(
-          children: [
-            Image.asset(
-              "assets/images/backgrounds/main_background.png",
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/images/backgrounds/main_background.png"),
               fit: BoxFit.fill,
-              width: double.infinity,
             ),
-            const SizedBox(height: 20),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                height: 800,
-                width: 414,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color(0xB0FFFFFF),
-                      Color(0x41FFFFFF),
-                    ],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                    stops: [0.1, 0.9],
-                  ),
-                ),
-              ),
+            gradient: LinearGradient(
+              colors: [
+                Color(0xB0FFFFFF),
+                Color(0x41FFFFFF),
+              ],
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+              stops: [0.1, 0.9],
             ),
-            Positioned(
-              bottom: 280,
-              left: 15,
-              child: Container(
-                height: 50,
-                width: 330,
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    color: Colors.black,
-                    width: 0.6,
-                  ),
-                ),
-                child: const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Text(
-                      "dolores.chambers@example.com",
-                      style: TextStyle(
-                        color: Color(0xFF1E1E1E),
-                        fontFamily: "WorkSans",
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                      ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: SingleChildScrollView(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.manual,
+              child: Form(
+                key: formKey,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                child: Column(
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height / 2,
+                      // color: Colors.red,
                     ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 215,
-              left: 15,
-              child: Container(
-                height: 50,
-                width: 330,
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    color: Colors.black,
-                    width: 0.6,
-                  ),
-                ),
-                child: const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Text(
-                      "Passcode",
-                      style: TextStyle(
-                        color: Color(0xFFA1A1A1),
-                        fontFamily: "WorkSans",
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 150,
-              left: 15,
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ConformEmail(),
-                    ),
-                  );
-                },
-                child: Container(
-                  height: 50,
-                  width: 330,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFFFA500),
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(
-                      width: 1,
-                      style: BorderStyle.solid,
-                      color: const Color(0xFFFFE4B3),
-                    ),
-                  ),
-                  child: const Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Log in",
-                      style: TextStyle(
-                        color: Color(0xFFFFFFFF),
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 85,
-              left: 15,
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ConformEmail(),
-                    ),
-                  );
-                },
-                child: Container(
-                  height: 50,
-                  width: 330,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFFFFFFF),
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(
-                      width: 1,
-                      color: const Color(0xFFFFF6E5),
-                      style: BorderStyle.solid,
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/icons/google_logo.png",
-                        height: 29,
-                        width: 29,
-                      ),
-                      const SizedBox(width: 5),
-                      const Text(
-                        "Log In with Google",
-                        style: TextStyle(
-                          color: Color(0xFF1E1E1E),
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
+                    TextFormField(
+                      validator: (value) => value!.isValidEmail() ? null : "Please Enter Correct E-mail",
+                      controller: emailController,
+                      decoration: InputDecoration(
+                        hintText: "Email",
+                        focusColor: Colors.black38,
+                        filled: true,
+                        // prefixIcon: const Icon(Icons.email, color: Colors.grey),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: const BorderSide(color: Colors.yellow),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: const BorderSide(color: Colors.black),
+                        ),
+                        fillColor: const Color(0x35A9A9A9),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: const BorderSide(color: Colors.black),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 20),
+                    TextFormField(
+                      validator: (value) => value!.isValidPassword() ? null : "Please Enter Correct Password",
+                      controller: passwordController,
+                      decoration: InputDecoration(
+                        hintText: "Password",
+                        focusColor: Colors.black38,
+                        filled: true,
+                        // prefixIcon: const Icon(Icons.lock, color: Colors.grey),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: const BorderSide(color: Colors.yellow),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: const BorderSide(color: Colors.black),
+                        ),
+                        fillColor: const Color(0x35A9A9A9),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: const BorderSide(color: Colors.black),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ConformEmail(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFFA500),
+                          border: Border.all(
+                            width: 1,
+                            color: const Color(0xFFFFE4B3),
+                          ),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        width: 350,
+                        height: 50,
+                        child: const Center(
+                          child: Text(
+                            "Log in",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "Poppins",
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      width: 350,
+                      height: 50,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/icons/google_logo.png",
+                            height: 30,
+                          ),
+                          const Text(
+                            " Log In with Google",
+                            style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 15),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignInPage(),
+                          ),
+                        );
+                      },
+                      child: RichText(
+                        text: TextSpan(
+                          text: "A new member? ",
+                          style: const TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 12,
+                            color: Color(0xFF1E1E1E),
+                            fontWeight: FontWeight.w400,
+                          ),
+                          children: [
+                            TextSpan(
+                              text: "Sign Up",
+                              style: const TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 12,
+                                color: Color(0xFFCD7300),
+                                fontWeight: FontWeight.w400,
+                              ),
+                              recognizer: TapGestureRecognizer()..onTap = () {},
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 60),
+                  ],
                 ),
               ),
             ),
-            Positioned(
-              bottom: 50,
-              left: 100,
-              child: Row(
-                children: [
-                  const Text(
-                    "A new member? ",
-                    style: TextStyle(
-                      color: Color(0xFF1E1E1E),
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                    ),
-                  ),
-                  const SizedBox(width: 2),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SignInPage(),
-                        ),
-                      );
-                    },
-                    child: const Text(
-                      "Sign Up",
-                      style: TextStyle(
-                        color: Color(0xFFCD7300),
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ],
+          ),
         ),
       ),
     );

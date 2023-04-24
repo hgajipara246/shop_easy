@@ -60,55 +60,74 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                 itemBuilder: (context, index) => index == 2
                     ? Padding(
                         padding: const EdgeInsets.all(19.0),
-                        child: Container(
-                          height: 200,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFD3D3D3),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                bottom: 0,
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => const AddNewCard(),
-                                      ),
-                                    );
-                                  },
-                                  child: Container(
-                                    height: 60,
-                                    width: 323,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFF5F5F5),
-                                      borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(20),
-                                        bottomRight: Radius.circular(20),
-                                      ),
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          "Add a new card",
-                                          style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 15,
-                                            color: Color(0xFF1E1E1E),
-                                          ),
+                        child: InkWell(
+                          onTap: () {
+                            if (index == 2) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AddNewCard(),
+                                ),
+                              );
+                            } else if (index == 1) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AddNewCard(),
+                                ),
+                              );
+                            }
+                          },
+                          child: Container(
+                            height: 200,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFD3D3D3),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  bottom: 0,
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => const AddNewCard(),
                                         ),
-                                        SizedBox(width: 10),
-                                        Icon(Icons.add),
-                                      ],
+                                      );
+                                    },
+                                    child: Container(
+                                      height: 60,
+                                      width: 323,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFF5F5F5),
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(20),
+                                          bottomRight: Radius.circular(20),
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            "Add a new card",
+                                            style: TextStyle(
+                                              fontFamily: "Poppins",
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 15,
+                                              color: Color(0xFF1E1E1E),
+                                            ),
+                                          ),
+                                          SizedBox(width: 10),
+                                          Icon(Icons.add),
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              )
-                            ],
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_easy/screens/selection_page.dart';
 
 class ProductDetails extends StatefulWidget {
   const ProductDetails({Key? key}) : super(key: key);
@@ -128,25 +129,37 @@ class _ProductDetailsState extends State<ProductDetails> {
                 ],
               ),
               const SizedBox(height: 25),
-              Container(
-                width: double.infinity,
-                height: 55,
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFFA500),
-                  borderRadius: BorderRadius.circular(5),
-                  border: Border.all(
-                    color: const Color(0xFFFFE4B3),
-                    width: 1,
+              InkWell(
+                onTap: () {
+                  {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SelectionPage(),
+                      ),
+                    );
+                  }
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: 55,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFFA500),
+                    borderRadius: BorderRadius.circular(5),
+                    border: Border.all(
+                      color: const Color(0xFFFFE4B3),
+                      width: 1,
+                    ),
                   ),
-                ),
-                child: const Center(
-                  child: Text(
-                    "Add to Cart",
-                    style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                      color: Color(0xFFFFFFFF),
+                  child: const Center(
+                    child: Text(
+                      "Add to Cart",
+                      style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        color: Color(0xFFFFFFFF),
+                      ),
                     ),
                   ),
                 ),

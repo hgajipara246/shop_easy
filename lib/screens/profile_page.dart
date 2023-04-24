@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_easy/screens/general_setting.dart';
+import 'package:shop_easy/screens/history_page.dart';
+import 'package:shop_easy/screens/payment_details.dart';
+import 'package:shop_easy/screens/shipping_address.dart';
+import 'package:shop_easy/screens/wishlist_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -121,22 +126,63 @@ class _ProfilePoseState extends State<ProfilePage> {
                 ListView.separated(
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemBuilder: (context, index) => Row(
-                    children: [
-                      SvgPicture.asset(
-                        iconsList[index],
-                      ),
-                      SizedBox(width: 15),
-                      Text(
-                        profilecategory[index],
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontFamily: "WorkSans",
-                          fontSize: 15,
-                          color: Color(0xFF1E1E1E),
+                  itemBuilder: (context, index) => InkWell(
+                    onTap: () {
+                      if (index == 0) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => GeneralSetting(),
+                          ),
+                        );
+                      } else if (index == 1) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PaymentDetails(),
+                          ),
+                        );
+                      } else if (index == 2) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ShippingAddress(),
+                          ),
+                        );
+                      } else if (index == 3) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => WishListPage(),
+                          ),
+                        );
+                      } else if (index == 4) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HistoryPage(),
+                          ),
+                        );
+                      }
+                      debugPrint("Third Screen------->");
+                    },
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
+                          iconsList[index],
                         ),
-                      ),
-                    ],
+                        SizedBox(width: 15),
+                        Text(
+                          profilecategory[index],
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontFamily: "WorkSans",
+                            fontSize: 15,
+                            color: Color(0xFF1E1E1E),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   separatorBuilder: (context, index) => SizedBox(height: 17),
                   itemCount: 9,

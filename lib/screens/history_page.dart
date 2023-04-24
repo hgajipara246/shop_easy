@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_easy/screens/track_order.dart';
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage({Key? key}) : super(key: key);
@@ -84,19 +85,31 @@ class _HistoryPageState extends State<HistoryPage> {
                     ),
                     child: Column(
                       children: [
-                        Stack(
-                          children: [
-                            ClipRRect(
-                              borderRadius: const BorderRadius.only(
-                                topRight: Radius.circular(10),
-                                topLeft: Radius.circular(10),
+                        InkWell(
+                          onTap: () {
+                            if (index == 0) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => TrackOrder(),
+                                ),
+                              );
+                            }
+                          },
+                          child: Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                  topRight: Radius.circular(10),
+                                  topLeft: Radius.circular(10),
+                                ),
+                                child: Image.asset(
+                                  februaryproductImageList[index],
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                              child: Image.asset(
-                                februaryproductImageList[index],
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(5.0),

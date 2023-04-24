@@ -234,7 +234,7 @@ class _SelectScreenState extends State<SelectionPage> {
                 ),
                 child: const Text(
                   textAlign: TextAlign.center,
-                  "Go to shop",
+                  "Add to cart",
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: "Poppins",

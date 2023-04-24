@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_easy/screens/filter_page.dart';
+import 'package:shop_easy/screens/store_profile.dart';
 
 class SearchPageThree extends StatefulWidget {
   const SearchPageThree({Key? key}) : super(key: key);
@@ -300,57 +301,67 @@ class _WishListPageState extends State<SearchPageThree> {
                                 shrinkWrap: true,
                                 itemBuilder: (context, index) => Padding(
                                       padding: const EdgeInsets.symmetric(horizontal: 10),
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: BorderRadius.circular(10),
-                                          boxShadow: const [
-                                            BoxShadow(
-                                              color: Color(0x15000000),
-                                              offset: Offset(0, 5),
-                                              blurRadius: 15,
+                                      child: InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => StoreProfile(),
                                             ),
-                                          ],
-                                          border: Border.all(
-                                            color: const Color(0xFFF5F5F5),
-                                            width: 2,
-                                          ),
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(10),
-                                          child: Row(
-                                            children: [
-                                              Image.asset(
-                                                storeImages[index],
-                                                height: 50,
-                                              ),
-                                              SizedBox(width: 15),
-                                              Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    storeName[index],
-                                                    style: TextStyle(
-                                                      fontFamily: "Poppins",
-                                                      fontWeight: FontWeight.w500,
-                                                      fontSize: 14,
-                                                      color: Color(0xFF1E1E1E),
-                                                    ),
-                                                  ),
-                                                  SizedBox(height: 5),
-                                                  Text(
-                                                    storeAddress[index],
-                                                    style: TextStyle(
-                                                      fontFamily: "Poppins",
-                                                      fontWeight: FontWeight.w400,
-                                                      fontSize: 13,
-                                                      color: Color(0xFF1E1E1E),
-                                                      fontStyle: FontStyle.italic,
-                                                    ),
-                                                  ),
-                                                ],
+                                          );
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.circular(10),
+                                            boxShadow: const [
+                                              BoxShadow(
+                                                color: Color(0x15000000),
+                                                offset: Offset(0, 5),
+                                                blurRadius: 15,
                                               ),
                                             ],
+                                            border: Border.all(
+                                              color: const Color(0xFFF5F5F5),
+                                              width: 2,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(10),
+                                            child: Row(
+                                              children: [
+                                                Image.asset(
+                                                  storeImages[index],
+                                                  height: 50,
+                                                ),
+                                                SizedBox(width: 15),
+                                                Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      storeName[index],
+                                                      style: TextStyle(
+                                                        fontFamily: "Poppins",
+                                                        fontWeight: FontWeight.w500,
+                                                        fontSize: 14,
+                                                        color: Color(0xFF1E1E1E),
+                                                      ),
+                                                    ),
+                                                    SizedBox(height: 5),
+                                                    Text(
+                                                      storeAddress[index],
+                                                      style: TextStyle(
+                                                        fontFamily: "Poppins",
+                                                        fontWeight: FontWeight.w400,
+                                                        fontSize: 13,
+                                                        color: Color(0xFF1E1E1E),
+                                                        fontStyle: FontStyle.italic,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),

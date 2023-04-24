@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_easy/screens/categorie_page.dart';
 import 'package:shop_easy/screens/search_page_one.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,6 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  TextEditingController searchController = TextEditingController();
+
   List<bool> like2 = [
     false,
     false,
@@ -32,12 +35,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Icon(
-          Icons.dehaze_rounded,
-          color: Colors.black,
-        ),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+      drawer: Drawer(),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
@@ -88,8 +89,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10),
-              child: InkWell(
+              padding: const EdgeInsets.all(15),
+              child: TextFormField(
                 onTap: () {
                   Navigator.push(
                     context,
@@ -98,38 +99,67 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 },
-                child: Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Color(0xFFF5F5F5),
-                    border: Border.all(
-                      color: Color(0xFFD3D3D3),
-                      width: 1,
+                controller: searchController,
+                autocorrect: true,
+                decoration: InputDecoration(
+                  hintText: "Groceries, Dresses, suits, etc",
+                  focusColor: Colors.black38,
+                  filled: true,
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Image.asset(
+                      "assets/icons/search_icon.png",
+                      height: 10,
+                      width: 10,
                     ),
+                  ),
+                  border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
+                    borderSide: const BorderSide(color: Color(0xFFD3D3D3), width: 1, style: BorderStyle.solid),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          "assets/icons/search_icon.png",
-                          height: 20,
-                          width: 20,
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          "Groceries, Dresses, suits, etc",
-                          style: TextStyle(
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w400,
-                            fontSize: 13,
-                            color: Color(0xFF1E1E1E),
-                          ),
-                        )
-                      ],
-                    ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: const BorderSide(color: Color(0xFFD3D3D3), width: 1, style: BorderStyle.solid),
                   ),
+                  fillColor: const Color(0x35A9A9A9),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: const BorderSide(color: Color(0xFFD3D3D3), width: 1, style: BorderStyle.solid),
+                  ),
+
+                  // Container(
+                  //   height: 50,
+                  //   decoration: BoxDecoration(
+                  //     color: Color(0xFFF5F5F5),
+                  //     border: Border.all(
+                  //       color: Color(0xFFD3D3D3),
+                  //       width: 1,
+                  //     ),
+                  //     borderRadius: BorderRadius.circular(30),
+                  //   ),
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  //     child: Row(
+                  //       children: [
+                  //         Image.asset(
+                  //           "assets/icons/search_icon.png",
+                  //           height: 20,
+                  //           width: 20,
+                  //         ),
+                  //         SizedBox(width: 10),
+                  //         Text(
+                  //           "Groceries, Dresses, suits, etc",
+                  //           style: TextStyle(
+                  //             fontFamily: "Poppins",
+                  //             fontWeight: FontWeight.w400,
+                  //             fontSize: 13,
+                  //             color: Color(0xFF1E1E1E),
+                  //           ),
+                  //         )
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                 ),
               ),
             ),
@@ -158,30 +188,43 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) => Row(
                   children: [
                     index == 6
-                        ? Column(
-                            children: [
-                              Container(
-                                height: 60,
-                                width: 60,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFF5F5F5),
-                                  shape: BoxShape.circle,
+                        ? InkWell(
+                            onTap: () {
+                              if (index == 6) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => CategoriesPage(),
+                                  ),
+                                );
+                              }
+                              debugPrint("Third Screen------->");
+                            },
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 60,
+                                  width: 60,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFF5F5F5),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Icon(
+                                    Icons.arrow_forward_outlined,
+                                    size: 22,
+                                  ),
                                 ),
-                                child: Icon(
-                                  Icons.arrow_forward_outlined,
-                                  size: 22,
+                                Text(
+                                  "",
+                                  style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 15,
+                                    color: Color(0xFF1E1E1E),
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                "",
-                                style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 15,
-                                  color: Color(0xFF1E1E1E),
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           )
                         : Column(
                             children: [

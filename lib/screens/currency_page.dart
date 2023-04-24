@@ -26,9 +26,8 @@ class _CurrencyPageState extends State<CurrencyPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: const Icon(
-          Icons.dehaze_rounded,
-          color: Color(0xFF1E1E1E),
+        leading: const BackButton(
+          color: Colors.black,
         ),
         backgroundColor: Colors.white,
         elevation: 0,

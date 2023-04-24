@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_easy/screens/currency_page.dart';
+import 'package:shop_easy/screens/language_page.dart';
+import 'package:shop_easy/screens/offline_mode.dart';
 
 class GeneralSetting extends StatefulWidget {
   const GeneralSetting({Key? key}) : super(key: key);
@@ -19,9 +22,8 @@ class _GeneralSettingState extends State<GeneralSetting> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: const Icon(
-          Icons.dehaze_rounded,
-          color: Color(0xFF1E1E1E),
+        leading: const BackButton(
+          color: Colors.black,
         ),
         backgroundColor: Colors.white,
         elevation: 0,
@@ -91,70 +93,94 @@ class _GeneralSettingState extends State<GeneralSetting> {
                           ],
                         ),
                         const SizedBox(height: 25),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              "Language",
-                              style: TextStyle(
-                                fontFamily: "WorkSans",
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14,
-                                color: Color(0xFF1E1E1E),
-                              ),
-                            ),
-                            Row(
-                              children: const [
-                                Text(
-                                  "English",
-                                  style: TextStyle(
-                                    fontFamily: "WorkSans",
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 14,
-                                    color: Color(0xFFA1A1A1),
-                                  ),
+                        InkWell(
+                          onTap: () {
+                            {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Language(),
                                 ),
-                                SizedBox(width: 10),
-                                Icon(
-                                  Icons.arrow_forward_ios_outlined,
-                                  size: 13,
-                                )
-                              ],
-                            ),
-                          ],
+                              );
+                            }
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                "Language",
+                                style: TextStyle(
+                                  fontFamily: "WorkSans",
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                  color: Color(0xFF1E1E1E),
+                                ),
+                              ),
+                              Row(
+                                children: const [
+                                  Text(
+                                    "English",
+                                    style: TextStyle(
+                                      fontFamily: "WorkSans",
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 14,
+                                      color: Color(0xFFA1A1A1),
+                                    ),
+                                  ),
+                                  SizedBox(width: 10),
+                                  Icon(
+                                    Icons.arrow_forward_ios_outlined,
+                                    size: 13,
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                         const SizedBox(height: 35),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              "Currency",
-                              style: TextStyle(
-                                fontFamily: "WorkSans",
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14,
-                                color: Color(0xFF1E1E1E),
-                              ),
-                            ),
-                            Row(
-                              children: const [
-                                Text(
-                                  "NGN",
-                                  style: TextStyle(
-                                    fontFamily: "WorkSans",
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 14,
-                                    color: Color(0xFFA1A1A1),
-                                  ),
+                        InkWell(
+                          onTap: () {
+                            {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CurrencyPage(),
                                 ),
-                                SizedBox(width: 10),
-                                Icon(
-                                  Icons.arrow_forward_ios_outlined,
-                                  size: 13,
-                                )
-                              ],
-                            ),
-                          ],
+                              );
+                            }
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                "Currency",
+                                style: TextStyle(
+                                  fontFamily: "WorkSans",
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                  color: Color(0xFF1E1E1E),
+                                ),
+                              ),
+                              Row(
+                                children: const [
+                                  Text(
+                                    "NGN",
+                                    style: TextStyle(
+                                      fontFamily: "WorkSans",
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 14,
+                                      color: Color(0xFFA1A1A1),
+                                    ),
+                                  ),
+                                  SizedBox(width: 10),
+                                  Icon(
+                                    Icons.arrow_forward_ios_outlined,
+                                    size: 13,
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                         const SizedBox(height: 30),
                         Row(
@@ -185,23 +211,35 @@ class _GeneralSettingState extends State<GeneralSetting> {
                           ],
                         ),
                         const SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                              "Offline Mode",
-                              style: TextStyle(
-                                fontFamily: "WorkSans",
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14,
-                                color: Color(0xFF1E1E1E),
+                        InkWell(
+                          onTap: () {
+                            {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => OfflineMode(),
+                                ),
+                              );
+                            }
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: const [
+                              Text(
+                                "Offline Mode",
+                                style: TextStyle(
+                                  fontFamily: "WorkSans",
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                  color: Color(0xFF1E1E1E),
+                                ),
                               ),
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios_outlined,
-                              size: 13,
-                            ),
-                          ],
+                              Icon(
+                                Icons.arrow_forward_ios_outlined,
+                                size: 13,
+                              ),
+                            ],
+                          ),
                         ),
                         const SizedBox(height: 30),
                         Row(

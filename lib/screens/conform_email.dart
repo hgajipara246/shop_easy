@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_easy/screens/home_page.dart';
+import 'package:shop_easy/screens/bottom/bottom_screen.dart';
 
 class ConformEmail extends StatefulWidget {
   const ConformEmail({Key? key}) : super(key: key);
@@ -74,7 +74,7 @@ class _ConformEmailState extends State<ConformEmail> {
                   Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const HomePage(),
+                        builder: (context) => const BottomScreen(),
                       ),
                       (route) => false);
                 },
